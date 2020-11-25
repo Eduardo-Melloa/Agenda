@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Agenda - Cadastro</h1>
+        <form method="POST" action="/adicionar">
+            <div class="form-group">
+                <label for="nome">Nome:</label> 
+                <input type="text" class="form-control" name="nome" id="nome" th:value="${contato.nome}"/>
+            </div>
+            <div class="form-group">
+                <label for="tipo">Tipo:</label> 
+                <select name="tipo" id="tipo" th:value="${contato.tipo}" >
+                    <option value="Residencial">Residencial</option>
+                    <option value="Comercial">Comercial</option>
+                </select>
+                <!--<input type="text" class="form-control" name="tipo" id="tipo" th:value="${contato.tipo}"/>-->
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" class="form-control" name="telefone" id="telefone" th:value="${contato.telefone}"/>
+            </div>
+            <div>
+                <input type="hidden" name="id" id="id" th:value="${contato.id}"/BB>
+                <input type="submit" class="btn btn-primary" value="Salvar"/>
+            </div>
+            
+        </form>
+        <a class="btn btn-danger" href="/">Voltar</a>
+    </div>
+    
+
+    <script src="/js/jquery-3.5.1.slim.min.js" ></script>
+    <script src="/js/bootstrap.bundle.min.js" ></script>
+    
+</body>
+</html>

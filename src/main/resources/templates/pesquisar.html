@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Agenda - Pesquisa</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Agenda - Pesquisar</h1>
+
+        <form method="POST" action="/pesquisar">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" th:value="${nome}"/>
+            </div>
+            
+            <input type="submit" class="btn btn-primary"/>
+        </form>
+    <div>
+        <div class="border" th:if="${lista != null}">
+            <div class="row m-1" th:each="contato : ${lista}">
+                <a th:href="@{/detalhes/{id}(id=${contato.id})}" th:text="${contato.nome}"></a>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+    
+
+
+    <script src="/js/jquery-3.5.1.slim.min.js" ></script>
+    <script src="/js/bootstrap.bundle.min.js" ></script>
+</body>
+</html>

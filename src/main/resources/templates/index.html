@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Agenda</title>
+    </head>
+<body>
+    <div class="container">
+        <h1>Agenda</h1>
+        
+        <div class="m-2">
+            <a class="btn btn-primary"href="/cadastro">Novo</a>
+            <a class="btn btn-primary"href="/pesquisar">Pesquisar</a>
+        </div>
+
+        <div th:if="${lista != null}">
+            <div class="row m-1" th:each="contato : ${lista}">
+                <div class="col-6">
+                    <a th:href="${'/detalhes/'+ contato.id}" th:text="${contato.nome}"></a>
+                </div>
+
+                <div class="col-3 text-center">
+                    <a class="btn btn-success btn-small" th:href="${'/editar/'+ contato.id}"> Editar </a>
+                </div>
+
+                <div class="col-3 text-center">
+                    <a class="btn btn-danger btn-small" th:href="${'/deletar/'+ contato.id}"> Apagar </a>
+                </div>
+            </div>
+        </div>
+    
+  
+    </div>
+    <script src="/js/jquery-3.5.1.slim.min.js" ></script>
+    <script src="/js/bootstrap.bundle.min.js" ></script>
+    
+</body>
+</html>
